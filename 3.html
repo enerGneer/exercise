@@ -4,6 +4,37 @@
 <head>
   <title>WEB</title>
   <meta charset="utf-8">
+<!--Function-->
+<script>
+  function nightDayHandler(self) {
+  var target = document.querySelector('body');
+
+  if(self.value === 'dark') {
+    document.querySelector('body').style.backgroundColor = 'black';
+    document.querySelector('body').style.color = 'white';
+    self.value = 'light';
+
+    var alist = document.querySelectorAll('a');
+    var i = 0;
+    while(i < alist.length) {
+      alist[i].style.color = 'powderblue';
+    i = i + 1;
+    }
+  } else {
+    document.querySelector('body').style.backgroundColor = 'white';
+    document.querySelector('body').style.color = 'black';
+    self.value = 'dark';
+
+    var alist = document.querySelectorAll('a');
+    var i = 0;
+    while(i < alist.length) {
+      alist[i].style.color = 'blue';
+    i = i + 1;
+    }
+  }
+  }
+
+</script>
 </head>
 
 <body>
@@ -70,7 +101,10 @@
       }
     }
   ">
-
+  <!--Function-->
+  <input type="button" value="dark" onclick="
+    nightDayHandler(this);
+  ">
 
   <div id="grid">
 
