@@ -86,20 +86,24 @@
 }
 
 .header {
+  height: 80px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   border-bottom: 1px solid gray;
 }
 
 .header-inner {
   width: 900px;
   height: 100%;
-  margin: 0 auto;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
 }
 
 .logo {
-  float: left;
   width: 100px;
-  height: 80px;
-  padding-top: 22px;
 }
 
 .logo h1 a {
@@ -107,40 +111,22 @@
   color: orange;
 }
 
-.menu {
-  float: left;
-  width: calc(100% - 200px);
-  height: 80px;
-  text-align: center;
-}
-
 .menu__ul {
-  display: inline-block;
+  display: flex;
+  flex-direction: row;
 }
 
 .menu__ul li {
-  float: left;
   list-style: none;
 }
 
 .menu__ul li a {
   display: block;
-  color: black;
+  padding: 10px 20px;
   text-decoration: none;
-  padding: 29px 20px;
-}
-
-.menu__ul li a:hover {
-  color: orange;
+  color: black;
 }
 
 .user {
-  float: left;
   width: 100px;
-  height: 80px;
-  padding-top: 23px;
-}
-
-.clearfix {
-  clear: both;
 }
