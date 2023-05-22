@@ -1,0 +1,23 @@
+/* keyframe 작성 방법 */
+@keyframes 애니메이션이름 {
+  from {
+    left: 0;
+  }
+  to {
+    left: 200px;
+  }
+}
+
+/* keyframe 작성 방법2 from to 대신 % 표기 가능 */
+@keyframes 애니메이션이름 {
+  0% {
+    left: 0;
+  }
+  50% {
+    left: 200px;
+  }
+  100% {
+    top: 200px;
+    left: 200px;
+  }
+}
