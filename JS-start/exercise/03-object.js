@@ -1,11 +1,17 @@
-let userData = {
-  name: "이정훈",
-  age: 85,
-  height: 180,
-  company: "코드공장",
+// 객체 선언하기
+const classmate = {
+  name: "철수",
+  age: 8,
+  school: "꽃샘초등학교",
 };
 
-Object.keys(userData)[
-  // 결과
-  ("name", "age", "hight", "company")
-];
+// 객체의 값 꺼내기
+classmate.name; // 철수
+classmate["name"]; // 철수
+
+// 객체의 키&값 삭제하기
+delete classmate.name;
+classmate = {
+  age: 8,
+  school: "꽃샘초등학교",
+};
