@@ -6,6 +6,27 @@ const newArr = [...arr];
 const obj = {
   name: "otter",
   gender: "male",
+  favoriteFood: {
+    first: "sushi",
+    second: "hamburger",
+  },
 };
-
+//  중첩 객체는 제대로 복사가 되지 않음
 const newObj = { ...obj };
+
+obj.name = "rabbit";
+obj.gender = "female";
+obj.favoriteFood.first = "cold noodle";
+
+console.log(newObj);
+
+/*
+	{
+		name: "otter",
+		gender: "male",
+	  favoriteFood: {
+			first: "cold noodle",
+			second: "hamburger"
+	  }
+	}
+*/
