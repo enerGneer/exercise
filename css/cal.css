@@ -1,0 +1,20 @@
+.item1 {
+  background: red;
+  width: calc(50px + 50px);
+  height: 50px;
+}
+.item2 {
+  background: blue;
+  width: calc(100% - 120px);
+  height: 50px;
+}
+.item3 {
+  background: green;
+  width: calc(2 * 100px);
+  height: 50px;
+}
+.item4 {
+  background: orange;
+  width: calc(100% / 4);
+  height: 50px;
+}
