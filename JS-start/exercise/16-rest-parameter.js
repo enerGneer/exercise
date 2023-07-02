@@ -15,3 +15,12 @@ const foo2 = function (one, two, ...arr) {
 };
 
 foo2(1, 2, 3, 4, 5); // [ 3, 4, 5 ]
+
+// 들어오는 데이터를 전부 rest parameter로 받아올 수도 있음
+const foo3 = function (...rest3) {
+  console.log(rest3);
+};
+
+foo3(1, 2, 3, 4, 5); // [ 1, 2, 3, 4, 5 ]
+
+//rest parameter를 작성할 때는 반드시 마지막에 위치해야 합니다.
