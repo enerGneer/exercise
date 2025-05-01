@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>test</title>
+    <style>
+        button {
+          background: #4facfe;
+          border: none;
+          color: white;
+          padding: .5em 1em;
+          border-radius: .5em;
+          cursor: pointer;
+        }
+      </style>
+</head>
+<body>
+    <!-- 1) 템플릿 정의 -->
+    <template id="tpl-fancy-button">
+        <button><slot>Default</slot></button>
+      </template>
+      
+    
+      <div id="container"></div>
+
+      <script>
+        const container = document.getElementById('container');
+        const tpl       = document.getElementById('tpl-fancy-button');
+      
+        // 예시 데이터
+        const labels = ['저를 눌러보세요', '다른 버튼', '세 번째'];
+      
+        labels.forEach(text => {
+          // <template> 복제
+          const clone = tpl.content.cloneNode(true);
+          // slot에 텍스트 삽입
+          const btn = clone.querySelector('button');
+          btn.textContent = text;
+          // 페이지에 추가
+          container.appendChild(clone);
+        });
+        container.addEventListener('click', e => {
+            if (e.target.tagName === 'BUTTON') {
+                alert(`눌린 버튼 텍스트: ${e.target.textContent}`);
+            }
+        });
+      </script>
+      
+    
+</body>
+</html>

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>test</title>
+</head>
+<body>
+  <!-- 1) template 정의 -->
+  <template id="tpl-fancy-button">
+    <style>
+      button {
+        background: #4facfe;
+        border: none;
+        color: #fff;
+        padding: .5em 1em;
+        border-radius: .3em;
+        cursor: pointer;
+      }
+    </style>
+    <button><slot>Click</slot></button>
+  </template>
+
+  <script>
+    class FancyButton extends HTMLElement {
+      constructor() {
+        super();
+        const tpl    = document.getElementById('tpl-fancy-button');
+        const shadow = this.attachShadow({ mode: 'open' });
+        shadow.appendChild(tpl.content.cloneNode(true));
+      }
+    }
+    customElements.define('fancy-button', FancyButton);
+  </script>
+
+  <!-- 2) 재사용 -->
+  <fancy-button>첫 번째</fancy-button>
+  <fancy-button>두 번째</fancy-button>
+  <fancy-button>세 번째</fancy-button>
+
+  <script>
+    // 외부에서 클릭 이벤트 듣기
+    document.querySelectorAll('fancy-button').forEach(el => {
+      el.addEventListener('click', () => {
+        alert(`"${el.textContent.trim()}" 버튼이 클릭되었습니다.`);
+      });
+    });
+  </script>
+</body>
+</html>
