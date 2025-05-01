@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>test</title>
+</head>
+<body>
+    <!-- 1) 템플릿 정의 -->
+    <template id="tpl-fancy-button">
+        <style>
+        button {
+            background: linear-gradient(to right, #4facfe, #00f2fe);
+            border: none; padding: .5em 1em; color: white;
+            font-size: 1rem; border-radius: .5em;
+            cursor: pointer;
+        }
+        </style>
+        <button><slot>Click me</slot></button>
+    </template>
+    
+    <script>
+        // 2) Custom Element 클래스 정의
+        class FancyButton extends HTMLElement {
+        constructor() {
+            super();
+            // 3) Shadow DOM 부착
+            const shadow = this.attachShadow({ mode: 'open' });
+            // 4) 템플릿 복제
+            const tpl = document.getElementById('tpl-fancy-button');
+            shadow.appendChild(tpl.content.cloneNode(true));
+            // 5) 내부 로직: 클릭 시 emitted 이벤트
+            shadow.querySelector('button')
+                .addEventListener('click', () => {
+                    this.dispatchEvent(new CustomEvent('fancy-click'));
+                });
+        }
+        }
+        // 6) 태그 등록
+        customElements.define('fancy-button', FancyButton);
+    </script>
+    
+    <!-- 7) 사용 -->
+    <fancy-button id="btn">저를 눌러보세요</fancy-button>
+    <script>
+        document.getElementById('btn')
+                .addEventListener('fancy-click', () => alert('Hello!'));
+    </script>
+    
+</body>
+</html>
